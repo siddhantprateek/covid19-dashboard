@@ -10,7 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import axios from 'axios'
+import axios from '../../config/axios'
 import './SummaryChart.styles.css';
 
 
@@ -35,32 +35,54 @@ export const options = {
     },
   },
 };
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 
 const SummaryChart = () => {
 
-  var activeCase = []
+  const [ activeCase, setactiveCase ] = useState([]) 
   useEffect(()=>{
     const getData = async () => {
-      const res = await axios.get('https://api.covid19api.com/world')
+      const res = await axios.get('/world')
       try {
-        res.data.slice(1, 100).map((confirmed) => activeCase.push(confirmed.NewConfirmed))
+        setactiveCase(res.data)
       }catch(err){
         console.error(err)
       }
     }
     getData()
-  })
+  }, [])
+  console.log(activeCase)
+
+  var TotalcasesData = []
+  activeCase.map((cnf) => TotalcasesData.push(cnf.TotalConfirmed))
+
+  var DeathcasesData = []
+  activeCase.map((cnf) => DeathcasesData.push(cnf.NewDeaths))
+  
+  var NewcasesData = []
+  activeCase.map((cnf) => NewcasesData.push(cnf.NewConfirmed))
 
   const data = {
   labels,
   datasets: [
     {
-      label: 'Dataset 1',
-      data: activeCase,
+      label: 'Total Cases',
+      data: [],
       borderColor: 'rgb(255, 99, 132)',
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
+    },
+    {
+      label: 'Active Cases',
+      data: NewcasesData,
+      borderColor: 'rgb(255,255,0)',
+      backgroundColor: 'rgba(255, 255, 0, 0.5)',
+    },
+    {
+      label: 'Deceased Cases',
+      data: DeathcasesData,
+      borderColor: 'rgb(53, 162, 235)',
+      backgroundColor: 'rgba(53, 162, 235, 0.5)',
     }
   ],
 };

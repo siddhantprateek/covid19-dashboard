@@ -4,7 +4,16 @@ import './Filter.styles.css';
 const Filter = () => {
   
   return (
-    <div>Filter</div>
+    <div className='filter-section'>
+      <div className="filter-option section-left">
+        <select name="" id="">
+          <option value="">Worldwide</option>
+        </select>
+      </div>
+      <div className="pie-chart section-right">
+      
+      </div>
+    </div>
   );
 };
 

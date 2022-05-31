@@ -2,28 +2,31 @@ const express = require('express')
 const axios = require('axios')
 const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
+const res = require('express/lib/response');
 
 const router = express.Router()
 
 var schema = buildSchema(`
     type Cases {
-        NewConfirmed: String,
-        TotalConfirmed: String,
-        NewDeaths: String,
-        TotalDeaths: String,
-        NewRecovered: String,
-        TotalRecovered: String,
+        NewConfirmed: Int,
+        TotalConfirmed: Int,
+        NewDeaths: Int,
+        TotalDeaths: Int,
+        NewRecovered: Int,
+        TotalRecovered: Int,
+        Date: String
     }
 
-    type Book {
-        title: String
-        author: String
+    type Countries {
+        Country: String,
+        Slug: String,
+        ISO2: String
     }
 
     type Query {
         hello: String,
         cases: [Cases],
-        books: [Book]
+        countries: [Countries],
     }
 `);
 
@@ -31,50 +34,17 @@ var root = {
     hello: () => {
         return 'Hello world!';
     },
-    cases: () => cases,
-    books: () => books,
+    cases: () => {
+        var cases = []
+        cases = getCases()
+        return cases
+    },
+    countries: () => {
+        var countries = []
+        countries = getCountries()
+        return countries
+    },
 };
-
-const books = [
-    {
-        title: 'The Awakening',
-        author: 'Kate Chopin',
-    },
-    {
-        title: 'City of Glass',
-        author: 'Paul Auster',
-    },
-];
-
-const cases = [
-    {
-        NewConfirmed: '742188',
-        TotalConfirmed: '411117686',
-        NewDeaths: '3002',
-        TotalDeaths: '5811650',
-        NewRecovered: '0',
-        TotalRecovered: '0',
-    },
-    {
-        NewConfirmed: '888676',
-        TotalConfirmed: '414591874',
-        NewDeaths: '6973',
-        TotalDeaths: '5832881',
-        NewRecovered: '0',
-        TotalRecovered: '0',
-    },
-];
-
-
-
-router.get('/world', async (req, res) => {
-    try {
-        const response = await axios.get('https://api.covid19api.com/world')
-        res.status(200).send(response.data)
-    } catch (error) {
-        console.error(error);
-    }
-})
 
 router.get('/summary', async (req, res) => {
     try {
@@ -84,6 +54,17 @@ router.get('/summary', async (req, res) => {
         console.error(error);
     }
 })
+
+const getCountries = async () => {
+    const response = await axios.get('https://api.covid19api.com/countries')
+    return response.data
+}
+
+const getCases = async () => {
+    const response = await axios.get('https://api.covid19api.com/world')
+    return response.data
+}
+
 
 router.use('/graphql', graphqlHTTP({
     schema: schema,

@@ -21,7 +21,7 @@ function App() {
     <div className="App">
      <Header />
      <Filter />
-     <CasesCard {...casesSummary}/>
+     <CasesCard {...casesSummary} />
      <SummaryChart />
     </div>
   );

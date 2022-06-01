@@ -1,0 +1,17 @@
+.img-thumbnail {
+    height: 12rem;
+    width: 20rem;
+}
+
+.news-box {
+    width: 25rem;
+    margin: .5rem;
+    padding: 2rem;
+    background-color: rgba(211, 211, 211, 0.373);
+}
+
+.news-article-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

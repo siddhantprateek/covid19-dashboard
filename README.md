@@ -1,6 +1,12 @@
 # Covid-19 Stats App
 
 
+## UI Design
+
+![](./assets/dashboard.png)
+![](./assets/summary.png)
+![](./assets/news.png)
+
 ## Setting up locally
 
 ```
@@ -10,7 +16,6 @@ npm install
 npm run client && npm run server
 
 ```
-
 ### Targets
 - [x] Use Graphql for fetching data on the frontend.
 - [ ] Add authentication for logging in to the app.

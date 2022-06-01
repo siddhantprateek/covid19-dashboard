@@ -2,5 +2,38 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+}
+
+section .spreads {
+  position: fixed;
+  filter: blur(250px);
+  z-index: -2;
+ 
+}
+
+section .spreads:nth-child(1) {
+  background-color: #3B59C5;
+  height: 400px;
+  width: 400px;
+  margin-left: 25rem;
+  margin-top: 50rem;
+}
+
+section .spreads:nth-child(2) {
+  background-color: #bc4cf8;
+  height: 400px;
+  width: 400px;
+  margin-left: 1rem;
+  margin-top: 5rem;
+}
+
+.chart-view {
+  display: flex;
+  justify-content: center;
+}
+
+.top-section {
+  display: flex;
+  justify-content: center;
 }

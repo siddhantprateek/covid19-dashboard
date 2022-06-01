@@ -1,28 +1,25 @@
-import React, { useEffect, useState} from 'react';
-import axios from './config/axios';
-import { Header, CasesCard, SummaryChart, Filter} from './components';
+import React from 'react';
+import { Header } from './components';
+import {  Routes, Route } from 'react-router-dom'
 import './App.css';
+import Dashboard from './pages/dashboard/dashboard.pages';
+import NewsPage from './pages/news/news.pages';
 
 function App() {
-  const [ casesSummary, setCasesSummary ] = useState([])
-  useEffect(() => {
-    async function getCasesSummary() {
-      try {
-        const response = await axios.get('/summary');
-        setCasesSummary(response.data.Global)
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    getCasesSummary()
-  }, [])
+
 
   return (
     <div className="App">
+      <section>
+        <div className='spreads'/>
+        <div className='spreads'/>
+      </section>
      <Header />
-     <Filter />
-     <CasesCard {...casesSummary} />
-     <SummaryChart />
+     <Routes>
+      <Route path="/" element={<Dashboard />} />
+      <Route path="/news" element={<NewsPage />} />
+     </Routes>
+
     </div>
   );
 }

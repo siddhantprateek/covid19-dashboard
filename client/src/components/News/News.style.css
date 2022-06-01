@@ -1,0 +1,37 @@
+.news-container {
+    width: 25rem;
+    margin: 0 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 16px 19px 69px -16px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+.news-container a{
+    text-decoration: none;
+    color: black;
+}
+
+.top-news h2 {
+    color: rgb(233, 219, 239);
+}
+
+.top-news {
+    background-color: rgb(244, 53, 85);
+    height: 9rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: white;
+}
+
+.news-content {
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.news-main {
+    margin-bottom: 1rem;
+}
+
+.top-news p,
+.top-news h4 {
+    color: white;
+}

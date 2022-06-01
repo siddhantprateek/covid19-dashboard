@@ -52,7 +52,6 @@ const SummaryChart = () => {
     }
     getData()
   }, [])
-  console.log(activeCase)
 
   var TotalcasesData = []
   activeCase.map((cnf) => TotalcasesData.push(cnf.TotalConfirmed))

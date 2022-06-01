@@ -16,7 +16,7 @@ ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 const Filter = () => {
   const [countrySlug, setCountrySlug] = useState("Worldwide");
-  const [countryCases, setCountryCases ] = useState([])
+  // const [countryCases, setCountryCases ] = useState([])
   const [active, setActive ] = useState(0)
   const [recovered, setRecovered] = useState(0)
   const [deceased, setDeceased] = useState(0)
@@ -32,8 +32,7 @@ const Filter = () => {
   useEffect(() => {
     axios.get(`/country/${countrySlug}`)
     .then(res => {
-      console.log(res.data)
-      setCountryCases(res.data)
+      // setCountryCases(res.data)
       setActive(res.data[100].Confirmed)
       setRecovered(res.data[100].Recovered)
       setDeceased(res.data[100].Deaths)

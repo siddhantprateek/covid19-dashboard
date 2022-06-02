@@ -18,7 +18,7 @@ npm run client && npm run server
 ```
 ### Targets
 - [x] Use Graphql for fetching data on the frontend.
-- [ ] Add authentication for logging in to the app.
+- [x] Add authentication for logging in to the app.
 - [ ] Use typescript instead of js as the primary language for the app.
 ### My Learnings from this Assignment
 

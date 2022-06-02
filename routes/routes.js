@@ -1,7 +1,7 @@
 const express = require('express')
 const axios = require('axios')
 const { graphqlHTTP } = require('express-graphql');
-const { buildSchema, assertType } = require('graphql');
+const { buildSchema } = require('graphql');
 
 const router = express.Router()
 

@@ -33,9 +33,9 @@ const Filter = () => {
     axios.get(`/country/${countrySlug}`)
     .then(res => {
       // setCountryCases(res.data)
-      setActive(res.data[100].Confirmed)
-      setRecovered(res.data[100].Recovered)
-      setDeceased(res.data[100].Deaths)
+      setActive(res.data[res.data.length - 1].Confirmed)
+      setRecovered(res.data[res.data.length - 1].Recovered)
+      setDeceased(res.data[res.data.length - 1].Deaths)
     })
     .catch(err => console.error(err))
   }, [countrySlug])

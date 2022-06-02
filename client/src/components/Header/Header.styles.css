@@ -16,3 +16,12 @@
     margin-right: 3rem;
     cursor: pointer;
 }
+
+.user-image {
+    position: relative;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-top: -0.6rem;
+    border: 2px solid black;
+    border-radius: 100px;
+}

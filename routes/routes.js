@@ -40,8 +40,7 @@ var schema = buildSchema(`
         cases: [Cases],
         countries: [Countries],
         countrycases: [CountryCase],
-        getCountryCase(countrySlug: String!): [CountryCase],
-        rollDice(numDice: Int!, numSides: Int): [Int]
+        getCountryCase(countrySlug: String!): CountryCase
     }
 `);
 
@@ -68,14 +67,7 @@ var root = {
         var data = []
         data = getCountry_Cases(countrySlug)
         return data
-    },
-    rollDice: ({numDice, numSides}) => {
-        var output = [];
-        for (var i = 0; i < numDice; i++) {
-          output.push(1 + Math.floor(Math.random() * (numSides || 6)));
-        }
-        return output;
-      }
+    }
 };
 
 router.get('/summary', async (req, res) => {

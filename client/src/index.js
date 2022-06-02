@@ -23,7 +23,7 @@ const onRedirectCallback = (appState) => {
 // production URI: https://covyapp.herokuapp.com/graphql
 // developement URI: http://localhost:4000/graphql
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql",
+  uri: "https://covyapp.herokuapp.com/graphql",
   cache: new InMemoryCache()
 });
 

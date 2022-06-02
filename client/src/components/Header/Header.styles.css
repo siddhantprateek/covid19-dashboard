@@ -25,3 +25,8 @@
     border: 2px solid black;
     border-radius: 100px;
 }
+
+.logo {
+    height: 2.5rem;
+    width: 2.5rem;
+}

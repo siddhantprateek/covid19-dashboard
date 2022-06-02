@@ -12,16 +12,18 @@ const Header = () => {
 
   return (
     <header className="header-container">
-      <img src="" alt="logo" />
+      <Link to="/">
+        <img className="logo" src={`https://cdn-icons-png.flaticon.com/512/2913/2913465.png`} alt="logo" />
+      </Link>
       <ul>
         <li>
           <Link to="/">Dasboard</Link>
         </li>
         <li>
-          <Link to="/safety">Safety Measures</Link>
+          <Link to="/news">News</Link>
         </li>
         <li>
-          <Link to="/news">News</Link>
+          <Link to="/safety">Safety Measures</Link>
         </li>
         <li>
           <Link to="/aboutus">About Us</Link>

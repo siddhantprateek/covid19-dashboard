@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import logo from '../../assets/logo.png';
 import "./Header.styles.css";
 
 const Header = () => {
@@ -13,7 +14,7 @@ const Header = () => {
   return (
     <header className="header-container">
       <Link to="/">
-        <img className="logo" src={`https://cdn-icons-png.flaticon.com/512/2913/2913465.png`} alt="logo" />
+        <img className="logo" src={logo} alt="logo" />
       </Link>
       <ul>
         <li>

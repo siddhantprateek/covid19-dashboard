@@ -65,7 +65,11 @@ const Filter = () => {
     </div>
   
   );
-  if (error) return <p>Error :(</p>;
+  if (error) return (
+    <div className="filter-section">
+      <p>Error :(</p>
+    </div>
+  );
   return (
     <div className="filter-section">
       <div className="filter-option">

@@ -17,6 +17,10 @@ const [newsData, setNewsData] = useState()
   }, [])
   return (
     <div className='news-page'>
+        <div className="title">
+          <h1>TOP STORIES</h1>
+          <h1>TOP STORIES</h1>
+        </div>
         <div className="news-article-section">
             {
                 newsData?.map((article) => (

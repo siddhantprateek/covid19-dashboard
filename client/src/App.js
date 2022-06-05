@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from './components';
+import { Header, Footer } from './components';
 import { Routes, Route } from 'react-router-dom'
 import './App.css';
 import Dashboard from './pages/dashboard/dashboard.pages';
@@ -17,7 +17,7 @@ function App() {
       <Route path="/" element={<Dashboard />} />
       <Route path="/news" element={<NewsPage />} />
      </Routes>
-
+      <Footer />
     </div>
   );
 }

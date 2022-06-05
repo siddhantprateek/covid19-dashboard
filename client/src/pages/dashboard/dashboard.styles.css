@@ -1,0 +1,14 @@
+.title {
+    text-align: center;
+    padding: 2rem;
+}
+.title h1:nth-child(1) {
+    font-size: 3rem;
+    color: rgba(128, 128, 128, 0.278);   
+}
+.title h1:nth-child(2){
+    position: relative;
+    margin-top: -3.8rem;
+    /* margin-top: 2rem; */
+    font-size: 2rem;
+}

@@ -1,6 +1,8 @@
 import React, {useEffect, useState } from 'react'
 import { CasesCard, SummaryChart, Filter, News} from '../../components';
 import axios from '../../config/axios'
+import './dashboard.styles.css'
+
 const Dashboard = () => {
     const [ casesSummary, setCasesSummary ] = useState([])
     useEffect(() => {
@@ -19,6 +21,10 @@ const Dashboard = () => {
         <div className='top-section'>
             <Filter />
             <News /> 
+        </div>
+        <div className="title">
+            <h1>Cases Worldwide</h1>
+            <h1>Cases Worldwide</h1>
         </div>
         <CasesCard {...casesSummary} />
         <div className='chart-view'>

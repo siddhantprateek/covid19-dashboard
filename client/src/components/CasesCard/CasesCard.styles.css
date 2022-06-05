@@ -8,13 +8,20 @@
     margin: 0 2rem;
     width: 25rem;
     height: 10rem;
-    background: linear-gradient(260.52deg, rgba(0, 194, 255, 0.2) 0%, rgba(189, 0, 255, 0) 99.37%), linear-gradient(80.1deg, rgba(128, 0, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%), rgba(113, 127, 255, 0.254);;
+    background: linear-gradient(260.52deg, rgba(0, 194, 255, 0.2) 0%, rgba(189, 0, 255, 0) 99.37%), linear-gradient(80.1deg, rgba(128, 0, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%), rgba(94, 108, 232, 0.524);;
     color: white;
     text-align: center;
     padding: 1.5rem 0rem;
     border-radius: 10px;
-    box-shadow: 16px 19px 69px -16px rgba(0, 0, 0, 0.25);
+    /* box-shadow: 16px 19px 69px -16px rgba(0, 0, 0, 0.25); */
     backdrop-filter: blur(50px);
+    border: 1px solid blue;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.cases-card:hover {
+    box-shadow: 16px 19px 69px -16px rgba(0, 0, 0, 0.25);
 }
 
 .cases-card h1 {
@@ -22,7 +29,7 @@
 }
 
 .cases-card p:nth-child(3){
-    color: rgb(13, 232, 13);
+    color: rgb(4, 255, 4);
 }
 
 .death p:nth-child(3){

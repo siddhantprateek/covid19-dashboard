@@ -1,7 +1,5 @@
-# Covid-19 Stats App
+<h1 align="center">Covy App</h1>
 
-
-## UI Design
 
 ![](./assets/dashboard.png)
 ![](./assets/summary.png)
@@ -15,6 +13,15 @@
 
 ## Project Routes
 
+| Routes | Description |
+| -------- | -------- | 
+| `/` | UI Dashboard |
+| `/news`     | Fetch's news articles |
+| `/graphql` | route to Graphql |
+| `/country/:slug/from/:fromdate/to/:todate` | Fetch data covid report providing country's name, from date and to date as parameters |
+| `/country/:countryslug` | Returns all the available countries and provinces, as well as the country slug for per country requests. |
+| `/summary` | A summary of new and total cases per country updated daily. |
+| `/world` | Returns overall cases worldwide |
 
 
 
@@ -52,7 +59,6 @@ npm run server
 # in other shell
 npm run client
 ```
-
 ### Targets
 - [x] Use Graphql for fetching data on the frontend.
 - [x] Add authentication for logging in to the app.

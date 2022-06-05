@@ -1,13 +1,11 @@
 import React from 'react';
 import { Header } from './components';
-import {  Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import './App.css';
 import Dashboard from './pages/dashboard/dashboard.pages';
 import NewsPage from './pages/news/news.pages';
 
 function App() {
-
-
   return (
     <div className="App">
       <section>

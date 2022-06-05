@@ -16,7 +16,12 @@ ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 const Filter = () => {
   const [countrySlug, setCountrySlug] = useState("Worldwide");
-  // const [countryCases, setCountryCases ] = useState([])
+  const date = new Date()
+
+  const [ fromDate, setFromDate ] = useState("2020-01-30")
+  const currentTodate = `${date.getFullYear()}-0${date.getMonth()}-0${date.getDate() - 1}`
+  console.log(currentTodate)
+  const [ ToDate, setToDate ] = useState(currentTodate)
   const [active, setActive ] = useState(0)
   const [recovered, setRecovered] = useState(0)
   const [deceased, setDeceased] = useState(0)
@@ -30,7 +35,7 @@ const Filter = () => {
     }
   `);
   useEffect(() => {
-    axios.get(`/country/${countrySlug}`)
+    axios.get(`/country/${countrySlug}/from/${fromDate}/to/${ToDate}`)
     .then(res => {
       // setCountryCases(res.data)
       setActive(res.data[res.data.length - 1].Confirmed)
@@ -38,7 +43,7 @@ const Filter = () => {
       setDeceased(res.data[res.data.length - 1].Deaths)
     })
     .catch(err => console.error(err))
-  }, [countrySlug])
+  }, [countrySlug, ToDate, fromDate])
 
   const handleChange = (e) => {
     setCountrySlug(e.target.value)
@@ -81,7 +86,13 @@ const Filter = () => {
             <option value={cnt.Slug}>{cnt.Country}</option>
           ))}
         </select>
-      </div>
+        <br/>
+        
+        </div>
+        <div className="date-section">
+          <input value={fromDate} type="date" onChange={(e) => setFromDate(e.target.value)} className="filter-date" id="" />
+          <input value={ToDate} type="date" onChange={(e) => setToDate(e.target.value)} className="filter-date" id="" />
+        </div>
       <div className="polar-chart">
         <PolarArea data={pieData} />
       </div>

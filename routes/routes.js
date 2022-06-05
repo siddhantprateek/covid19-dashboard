@@ -108,6 +108,16 @@ router.get('/country/:countryslug', async (req, res) => {
     }
 })
 
+router.get('/country/:slug/from/:fromdate/to/:todate', async (req, res) => {
+    const { slug, fromdate, todate } = req.params 
+    try {
+        const response = await axios.get(`https://api.covid19api.com/country/${slug}?from=${fromdate}T00:00:00Z&to=${todate}T00:00:00Z`)
+        res.status(200).send(response.data)
+    } catch (error) {
+        console.error(error);
+    }
+})
+
 const getCountries = async () => {
     const response = await axios.get('https://api.covid19api.com/countries')
     return response.data
